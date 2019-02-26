@@ -8,25 +8,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    // const movies = [
-    //   {id: 0, title: "Harry Potter", rating: 5},
-    //   {id: 1, title: "Star Wars", rating: 4}
-    // ];
-    //
-    // let movieRows = [];
-    // movies.forEach((movie) => {
-    //   const movieRow = <MovieRow movie={movie}/>;
-    //   movieRows.push(movieRow)
-    // });
-    //
-    // this.state = {rows: movieRows}
-
     this.searchMovies();
   }
 
-    searchMovies() {
+    searchMovies(searchTerm) {
       console.log("Perform search");
-      const urlString = "https://api.themoviedb.org/3/search/movie?query=marvel&api_key=543485f64f8711068707462131362b40";
+      const urlString = "https://api.themoviedb.org/3/search/movie?api_key=543485f64f8711068707462131362b40&query=" + searchTerm;
       $.ajax({
         url: urlString,
         success: (searchResults) => {
@@ -49,6 +36,11 @@ class App extends Component {
         }
       })
   }
+  searchChangeHandler(event) {
+    const searchTerm = event.target.value;
+    this.searchMovies(searchTerm);
+}
+
   render() {
     return (
       <div>
@@ -62,7 +54,7 @@ class App extends Component {
             </td>
           </tr>
         </table>
-        <input className="searchBar" type='text' placeholder="Enter search term"/>
+        <input className="searchBar" type='text' placeholder="Enter search term" onChange={this.searchChangeHandler.bind(this)}/>
         {this.state.rows}
       </div>
     );
