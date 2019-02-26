@@ -7,5 +7,8 @@
 .searchBar {
   display: block;
   width: 99%;
-  padding: 8px;
+  padding: 8pxs;
+}
+.App {
+  text-align: center;
 }

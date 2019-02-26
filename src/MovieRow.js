@@ -8,14 +8,12 @@ class MovieRow extends Component{
                     <tbody>
                     <tr>
                         <td>
-                            <img src={this.props.movie.image} width="200" alt="poster"/>
+                            <img src={this.props.movie.poster_src} width="200" alt="poster"/>
                         </td>
                         <td>
-                            Title:{this.props.movie.title}
+                            <h1>{this.props.movie.title}</h1>
+                            <p>{this.props.movie.overview}</p>
                         </td>
-                        {/*<td>*/}
-                            {/*Description: {this.props.movie.description}*/}
-                        {/*</td>*/}
                     </tr>
                     </tbody>
                 </table>
