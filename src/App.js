@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import movieSvg from './movie_icon.svg';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <table className="titleBar">
+          <tr>
+            <td>
+              <img src={movieSvg} width='50' alt='logo'/>
+            </td>
+            <td>
+              <h1>Movies React App</h1>
+            </td>
+          </tr>
+        </table>
+        <input className="searchBar" type='text'/>
       </div>
     );
   }
