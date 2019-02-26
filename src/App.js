@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import movieSvg from './movie_icon.svg';
 import $ from 'jquery';
-import MovieRow from "./MovieRow";
+import MovieRow from "./components/MovieRow";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   constructor(props) {
@@ -44,16 +44,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <table className="titleBar">
-          <tr>
-            <td>
-              <img src={movieSvg} width='50' alt='logo'/>
-            </td>
-            <td>
-              <h1>Movies React App</h1>
-            </td>
-          </tr>
-        </table>
+        <NavBar/>
         <input className="searchBar" type='text' placeholder="Enter search term" onChange={this.searchChangeHandler.bind(this)}/>
         {this.state.rows}
       </div>
